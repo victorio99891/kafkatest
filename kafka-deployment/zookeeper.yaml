@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zookeeper-1
+  name: zookeeper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zookeeper-1
+      app: zookeeper
   template:
     metadata:
       labels:
-        app: zookeeper-1
+        app: zookeeper
     spec:
       containers:
-        - name: zoo1
+        - name: zookeeper
           image: digitalwonderland/zookeeper
           ports:
             - containerPort: 2181
@@ -21,14 +21,14 @@ spec:
             - name: ZOOKEEPER_ID
               value: "1"
             - name: ZOOKEEPER_SERVER_1
-              value: zoo1
+              value: zookeeper
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: zoo1
+  name: zookeeper
   labels:
-    app: zookeeper-1
+    app: zookeeper
 spec:
   ports:
     - name: client
@@ -41,4 +41,4 @@ spec:
       port: 3888
       protocol: TCP
   selector:
-    app: zookeeper-1
+    app: zookeeper

@@ -73,7 +73,7 @@ spec:
             - name: KAFKA_ADVERTISED_PORT
               value: "30702"
             - name: KAFKA_ADVERTISED_HOST_NAME
-              value: 192.168.128.128
+              value: 192.168.0.15
             - name: KAFKA_ZOOKEEPER_CONNECT
               value: zoo1:2181
             - name: KAFKA_BROKER_ID
